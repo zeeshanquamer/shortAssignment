@@ -22,7 +22,6 @@ const SidebarLinks = ({ title, icon, path, expanded, setExpanded }) => {
     <>
       <motion.div variants={linkAnimation} initial="hidden" animate="show">
         <Link
-          onClick={() => setExpanded(false)}
           to={path}
           className={`flex justify-between p-3 h-12 transition-all duration-0 ${
             pathname === path && expanded ? "bg-[#f2f1f1]" : ""
