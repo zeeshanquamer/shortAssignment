@@ -4,14 +4,13 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { sidebar } from "../data/sidebarlinks";
 import SidebarLinks from "./SidebarLinks";
-const Sidebar = () => {
-  const [expanded, setExpanded] = useState(false);
+const Sidebar = ({ expanded, setExpanded }) => {
   const sidebarAnimation = {
     width: expanded ? "300px" : "70px",
     transition: { type: "spring", stiffness: 150 },
   };
   const sidebarMobile = {
-    width: expanded ? "100%" : "70px",
+    width: expanded ? "100%" : "0px",
   };
 
   return (
@@ -41,10 +40,10 @@ const Sidebar = () => {
         animate={sidebarMobile}
         className={`${
           !expanded ? "items-center" : ""
-        } md:hidden flex flex-col p-4 shadow-md`}
+        } md:hidden flex flex-col md:p-4 shadow-md`}
       >
         {/* hamburger menu */}
-        <div className="cursor-pointer" onClick={() => setExpanded(!expanded)}>
+        <div className="cursor-pointer hidden" onClick={() => setExpanded(!expanded)}>
           {expanded ? (
             <IoIosArrowRoundBack fontSize={40} />
           ) : (

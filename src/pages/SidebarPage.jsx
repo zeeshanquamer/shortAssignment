@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 
-const SidebarPage = () => {
+const SidebarPage = ({ expanded, setExpanded }) => {
   return (
     <motion.div className="relative flex h-screen">
       {/* sidebar component */}
-      <Sidebar />
+      <Sidebar expanded={expanded} setExpanded={setExpanded} />
       <motion.div className="flex-1 overflow-auto">
         {/* outlet container */}
         <motion.div>
