@@ -43,7 +43,10 @@ const Sidebar = ({ expanded, setExpanded }) => {
         } md:hidden flex flex-col md:p-4 shadow-md`}
       >
         {/* hamburger menu */}
-        <div className="cursor-pointer hidden" onClick={() => setExpanded(!expanded)}>
+        <div
+          className="cursor-pointer hidden"
+          onClick={() => setExpanded(!expanded)}
+        >
           {expanded ? (
             <IoIosArrowRoundBack fontSize={40} />
           ) : (
@@ -53,7 +56,12 @@ const Sidebar = ({ expanded, setExpanded }) => {
         {/* sidebar links */}
         <div className={`flex flex-col gap-y-4 p-2`}>
           {sidebar.map((link) => (
-            <SidebarLinks key={link.id} {...link} expanded={expanded} />
+            <SidebarLinks
+              key={link.id}
+              {...link}
+              expanded={expanded}
+              setExpanded={setExpanded}
+            />
           ))}
         </div>
       </motion.div>
